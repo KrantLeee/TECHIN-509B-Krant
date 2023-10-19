@@ -11,16 +11,30 @@ from typing import List
     "....##############....",
 ]'''
 
+# board = [
+#     "......................",
+#     "......##########......",
+#     "......##########......",
+#     "......#........#......",
+#     "......#........#####..",
+#     "....###............#..",
+#     "....#............###..",
+#     "....##############....",
+# ]
+
+#case to check assert statement try & except& else
 board = [
-    "......................",
-    "......##########......",
+    "....................",
     "......##########......",
     "......#........#......",
-    "......#........#####..",
+    ".....#.........#......",
+    "....##..........####..",
     "....###............#..",
-    "....#............###..",
+    "....#.............##..",
     "....##############....",
 ]
+
+
 
 def flood_fill(input_board: List[str], old: str, new: str, x: int, y: int) -> List[str]:
     """Returns board with old values replaced with new values
@@ -34,24 +48,31 @@ def flood_fill(input_board: List[str], old: str, new: str, x: int, y: int) -> Li
     Returns:
         List[str]: Modified board
     """
+    #assert statement to check the borad in valid
+    #try & except
+    try:
+       assert all(len(row) == len(input_board[0]) for row in input_board)
+    except AssertionError as error:
+       print("input board is invalid")
+    else:
 
-    # Implement your code here.
-    for row in range(len(input_board)):
-      input_board[row] = list(input_board[row])
-      #print(input_board)
+        # Implement your code here.
+        for row in range(len(input_board)):
+            input_board[row] = list(input_board[row])
+        #print(input_board)
 
-    if input_board[x][y] == new:
+        if input_board[x][y] == new:
+            return input_board
+        def filler(x,y):
+            if 0 <= x < len(input_board) and 0 <= y < len(input_board[0]) and input_board[x][y] == old:
+                input_board[x][y] = new
+                filler(x+1,y)
+                filler(x-1,y)
+                filler(x,y+1)
+                filler(x,y-1)
+        filler(x,y)
+        input_board = [''.join(row2) for row2 in input_board]
         return input_board
-    def filler(x,y):
-      if 0 <= x < len(input_board) and 0 <= y < len(input_board[0]) and input_board[x][y] == old:
-        input_board[x][y] = new
-        filler(x+1,y)
-        filler(x-1,y)
-        filler(x,y+1)
-        filler(x,y-1)
-    filler(x,y)
-    input_board = [''.join(row2) for row2 in input_board]
-    return input_board
 
 
 
