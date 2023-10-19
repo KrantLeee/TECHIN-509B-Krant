@@ -49,6 +49,7 @@ def flood_fill(input_board: List[str], old: str, new: str, x: int, y: int) -> Li
         List[str]: Modified board
     """
     #assert statement to check the borad in valid
+    #try & except
     try:
        assert all(len(row) == len(input_board[0]) for row in input_board)
     except AssertionError as error:
