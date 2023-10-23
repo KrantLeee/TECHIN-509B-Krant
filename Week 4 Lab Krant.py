@@ -24,7 +24,7 @@ from typing import List
 
 #case to check assert statement try & except& else
 board = [
-    "....................",
+    "......................",
     "......##########......",
     "......#........#......",
     ".....#.........#......",
@@ -57,22 +57,22 @@ def flood_fill(input_board: List[str], old: str, new: str, x: int, y: int) -> Li
     else:
 
         # Implement your code here.
-        for row in range(len(input_board)):
-            input_board[row] = list(input_board[row])
+      for row in range(len(input_board)):
+          input_board[row] = list(input_board[row])
         #print(input_board)
 
-        if input_board[x][y] == new:
-            return input_board
-        def filler(x,y):
-            if 0 <= x < len(input_board) and 0 <= y < len(input_board[0]) and input_board[x][y] == old:
-                input_board[x][y] = new
-                filler(x+1,y)
-                filler(x-1,y)
-                filler(x,y+1)
-                filler(x,y-1)
-        filler(x,y)
-        input_board = [''.join(row2) for row2 in input_board]
-        return input_board
+      if input_board[x][y] == new:
+          return input_board
+      def filler(x,y):
+          if 0 <= x < len(input_board) and 0 <= y < len(input_board[0]) and input_board[x][y] == old:
+              input_board[x][y] = new
+              filler(x+1,y)
+              filler(x-1,y)
+              filler(x,y+1)
+              filler(x,y-1)
+      filler(x,y)
+      input_board = [''.join(row2) for row2 in input_board]
+      return input_board
 
 
 
@@ -92,4 +92,3 @@ for a in modified_board:
 # ....###~~~~~~~~~~~~#..
 # ....#~~~~~~~~~~~~###..
 # ....##############....
-
