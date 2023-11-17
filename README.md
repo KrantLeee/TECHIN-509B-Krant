@@ -1,3 +1,2 @@
-# TECHIN-509B-Krant
-# My code just merged into FukongFred's repository:
-# https://github.com/Fukongfred/Techin509b-FukongFred
+# techin509b-tictactoe
+Starter code for the Tic Tac Toe assignments
